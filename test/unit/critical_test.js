@@ -195,7 +195,20 @@
 				);
 				test.done();
 			});
-		}
+		},
+
+		"ignoreSSLErrors true": function( test ){
+			test.expect(1);
+
+			critical.findCritical( "https://localhost:9002/test-site.html", { ignoreSSLErrors: true, height: 1000, rules: allJSRules }, function( err, content ){
+				if( err ){
+					throw new Error( err );
+				} else {
+					test.equal( content, "h1{ font-size: 2em; }\np{ font-size: 1.5em; font-weight: bold; }\ndiv{ font-size: 2.5em; font-weight: normal; margin-top: 900px; }\n@media (min-width: 1100px){\ndiv{ font-size: 3em; }\n}", "Content should match" );
+				}
+				test.done();
+			});
+		},
 	};
 
 	exports.getRules = {

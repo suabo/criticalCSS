@@ -46,6 +46,16 @@
 						port: 9001,
 						base: path.join( "test", "files" )
 					}
+				},
+				sslserver: {
+					options: {
+						protocol: "https",
+						port: 9002,
+						base: path.join( "test", "files" ),
+						key: grunt.file.read("test/server.key").toString(),
+						cert: grunt.file.read("test/server.crt").toString(),
+        				ca: grunt.file.read("test/ca.crt").toString()
+					}
 				}
 			}
 		});

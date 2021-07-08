@@ -101,6 +101,8 @@
 		var rules = opts.rules || [];
 		var usepostcss = opts.postcss;
 		var tmpfile;
+		var username = opts.userName || null;
+		var password = opts.password || null;
 
 		var bufferSize = opts.buffer || DEFAULT_BUFFER_SIZE;
 
@@ -125,8 +127,14 @@
 				width,
 				height,
 				JSON.stringify( forceInclude ),
-				tmpfile
+				tmpfile,
+				username,
+				password
 		];
+
+		if( opts.ignoreSSLErrors ) {
+			execArgs.unshift( "--ignore-ssl-errors=true" );
+		}
 
 		if( opts.ignoreConsole ){
 			execArgs.push( "--ignoreConsole" );

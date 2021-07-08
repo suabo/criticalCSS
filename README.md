@@ -107,6 +107,22 @@ Necessary for potential memory issues.
 Type: `Boolean`
 Default value: `false`
 
+#### options.ignoreSSLErrors
+Type: `Boolean`
+Default value: `false`
+
+#### options.userName
+Type: `String`
+Default value: `''`
+
+Username for basic auth.
+
+#### options.password
+Type: `String`
+Default value: `''`
+
+Password for basic auth.
+
 Since criticalCSS handles output from STDOUT, it will also catch any
 outputs to `console` that are in the JavaScript on a page. If set to
 `true`, those will be silenced.
